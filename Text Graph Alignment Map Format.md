@@ -37,13 +37,13 @@ The fields are defined as follows:
     * A reverse flag, which is `false` if the alignment starts at that base and proceeds along the sequence's forward strand, and `true` if the alignment starts at that base and proceeds along the sequence's reverse strand.
     * A series of edits, separated by `|` characters.
     
-Each edit roughly plays the role of a CIGAR operation. An edit relates a possibly empty subsequence of the read to a possibly empty subsequence of the reference. It consists of a number of bases in the reference, a number of bases in the read, and, possibly, a piece of sequence giving the read's sequence for the edit, all of which are separated by `/` characters. There are four types of edits:
+    Each edit roughly plays the role of a CIGAR operation. An edit relates a possibly empty subsequence of the read to a possibly empty subsequence of the reference. It consists of a number of bases in the reference, a number of bases in the read, and, possibly, a piece of sequence giving the read's sequence for the edit, all of which are separated by `/` characters. There are four types of edits:
     * **matches**: reference base count = read base count, no read sequence given
     * **mismatches**: reference base count = read base count, read sequence given that does not match the corresponding reference sequence
     * **deletions**: reference base count > 0, read base count = 0, no read sequence given
     * **insertions**: reference base count = 0, read base count > 0, read sequence given containing inserted bases
 
-All edits must be described as one of the above four types; other types of edits are illegal. The total read base count of all edits in all mappings must be equal to the length of `SEQ` and `QUAL`.
+    All edits must be described as one of the above four types; other types of edits are illegal. The total read base count of all edits in all mappings must be equal to the length of `SEQ` and `QUAL`.
 
 * **SEQ**: The sequence of the alignment's read, in the orientation specified by `FLAGS`, which is also the correct orientation for interpreting `CIGAR` against the path in `PATH`. Must be expressed in upper case. Must not be `*`.
 
